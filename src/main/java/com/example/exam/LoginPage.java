@@ -35,13 +35,16 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View v) {
-        if(username.getText().toString().isEmpty() && password.getText().toString().isEmpty())
+        if(username.getText().toString().isEmpty() || password.getText().toString().isEmpty()||name.getText().toString().isEmpty())
         {
-            Toast.makeText(getApplicationContext(),"Invalid username or pssword",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Invalid username or Password or enter the name",Toast.LENGTH_LONG).show();
+        }else if (!username.getText().toString().equals("student1") || !password.getText().toString().equals("123456")) {
+            Toast.makeText(getApplicationContext(), "Wrong username or Password or enter the name", Toast.LENGTH_LONG).show();
         }
         else
         {
             //navigate to the MainActivity
+            studentName=name.getText().toString();
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
 
